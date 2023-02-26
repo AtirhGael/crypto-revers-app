@@ -6,16 +6,34 @@ import Tabs from './navigation/Tabs';
 
 
 
+// redux stuffs
+import { createStore, applyMiddleware } from 'redux';
+import { Provider } from 'react-redux';
+import thunk from 'redux-thunk';
+import rootReducer from './stores/tab/rootReducer';
 
+const store = createStore(
+  rootReducer,
+  applyMiddleware(thunk)
+)
+// end here
 const Stack = createNativeStackNavigator();
 
 const App = () => {
     return (
-        <NavigationContainer>
-          
-          <Tabs />
-      
+        <Provider store={store}>
+          <NavigationContainer>
+          <Stack.Navigator
+            screenOptions={{
+              headerShown:false
+            }}
+            initialRouteName={'mainLayout'}
+          >
+            <Stack.Screen name='mainLayout' component={Tabs} />
+
+          </Stack.Navigator>
         </NavigationContainer>
+        </Provider>
     )
 }
 

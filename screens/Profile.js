@@ -3,12 +3,15 @@ import {
     View,
     Text
 } from 'react-native';
+import MainLayOut from './MainLayOut';
 
 const Profile = () => {
     return (
-        <View>
+       <MainLayOut>
+         <View>
             <Text>Profile</Text>
         </View>
+       </MainLayOut>
     )
 }
 

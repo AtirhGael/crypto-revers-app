@@ -3,12 +3,15 @@ import {
     View,
     Text
 } from 'react-native';
+import MainLayOut from './MainLayOut';
 
 const Portfolio = () => {
     return (
-        <View>
+       <MainLayOut>
+         <View>
             <Text>Portfolio</Text>
         </View>
+       </MainLayOut>
     )
 }
 
